@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { AuthContext } from '../Context/Auth';
 
 const Profile = () => {
     const [user, setUser] = useState(null);
@@ -17,8 +18,9 @@ const Profile = () => {
     });
     const navigate = useNavigate();
 
+    const {  logout,  } = useContext(AuthContext);
+
     useEffect(() => {
-        // Load user data from localStorage
         const storedUser = localStorage.getItem('user');
         if (storedUser) {
             const parsedUser = JSON.parse(storedUser);
@@ -56,6 +58,10 @@ const Profile = () => {
         toast.success('Profile updated successfully!');
     };
 
+     const handleLogout=()=>{
+    logout()
+   toast.success('Logged out successfully');
+     }
     if (!user) {
         return (
             <div className="flex justify-center items-center h-screen">
@@ -286,11 +292,7 @@ const Profile = () => {
                     {/* Account Actions - Responsive */}
                     <div className="bg-gray-50 px-4 py-3 sm:px-6 border-t flex justify-end">
                         <button
-                            onClick={() => {
-                                localStorage.removeItem('user');
-                                navigate('/');
-                                toast.success('Logged out successfully');
-                            }}
+                            onClick={()=>handleLogout()}
                             className="px-3 py-1 sm:px-4 sm:py-2 text-red-600 hover:text-red-800 transition-colors text-sm sm:text-base"
                         >
                             Logout

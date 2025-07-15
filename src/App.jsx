@@ -25,10 +25,10 @@ function App() {
           <Route path='/' element={ user?<Navigate to={'/home'}/>: <Login/>} />
           <Route path='/Register' element={user?<Navigate to={'/home'}/>:<Register/>} />
           <Route path='/home' element={user?<HomePage/>:<Navigate to={'/'}/>} />
-          <Route path='/cart' element={<Cart/>} />
-          <Route path='/profile' element={<Profile/>} />
-          <Route path='/product/:id' element={<View/>} />
-          <Route path='/orders' element={<OrderPage/>} />
+          <Route path='/cart' element={user?<Cart/>:<Navigate to={'/'}/>} />
+          <Route path='/profile' element={user?<Profile/>:<Navigate to={'/'}/>} />
+          <Route path='/product/:id' element={user?<View/>:<Navigate to={'/'}/>} />
+          <Route path='/orders' element={user?<OrderPage/>:<Navigate to={'/'}/>} />
         </Routes>
       </BrowserRouter>
       <Toaster/>

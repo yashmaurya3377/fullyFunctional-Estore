@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/Auth';
 import { motion, AnimatePresence } from 'framer-motion';
 import { toast } from 'react-toastify';
@@ -12,7 +12,7 @@ const Cart = () => {
   const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   const shipping = subtotal > 100 ? 0 : 20.00; 
   const total = subtotal + shipping;
-
+  const navigate=useNavigate
   // Handle checkout
   const handleCheckout = () => {
     toast.success('Order placed successfully!', {
@@ -302,17 +302,16 @@ const Cart = () => {
 
                   <motion.button 
                     onClick={handleCheckout}
+                    
                     className="w-full bg-white hover:bg-gray-100 text-indigo-600 font-bold py-4 px-6 rounded-xl transition duration-200 flex justify-between items-center shadow-md"
                     variants={checkoutVariants}
                     whileHover="hover"
                     whileTap="tap"
                   >
                     <span className="font-bold">${total.toFixed(2)}</span>
-                    <span className="flex items-center">
+                    <span className="flex items-center bi bi-arrow-right">
                       Proceed to Checkout 
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                      </svg>
+                    
                     </span>
                   </motion.button>
 
