@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/Auth';
 
 const Navbar = () => {
-    const { user, logout, search, setsearch } = useContext(AuthContext);
+    const { user, logout, search, setsearch,cartItems } = useContext(AuthContext);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const [cartItemsCount] = useState(0);
@@ -68,9 +68,9 @@ const Navbar = () => {
                         >
                             <i className="bi bi-cart2 mr-1"></i>
                             Cart
-                            {cartItemsCount > 0 && (
+                            {cartItems.length > 0 && (
                                 <span className="absolute -top-2 -right-4 bg-amber-500 text-gray-900 text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
-                                    {cartItemsCount}
+                                    {cartItems.length}
                                 </span>
                             )}
                         </Link>

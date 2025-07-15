@@ -71,22 +71,22 @@ const SignUp = () => {
 
     return (
         <div className='pt-16'>
-            <section className=" flex items-stretch  text-white ">
-                <div className=" lg:flex w-1/2  bg-gray-500 bg-no-repeat bg-cover relative items-center" style={{ backgroundImage: 'url(/BG.jpg)' }}>
+            <section className="flex flex-col lg:flex-row items-stretch text-white min-h-screen">
+                {/* Left Side - Background Image */}
+                <div className="lg:w-1/2 w-full h-48 lg:h-auto bg-gray-500 bg-no-repeat bg-cover bg-center relative flex items-center" 
+                    style={{ backgroundImage: 'url(/BG.jpg)' }}>
                     <div className="absolute bg-black opacity-60 inset-0 z-0" />
-                    <div className="w-full px-24 z-10">
-                        <h1 className="text-5xl font-bold text-left tracking-wide">Keep it special</h1>
-                        <p className="text-3xl my-4">Capture your personal memory in unique way, anywhere.</p>
+                    <div className="w-full px-8 lg:px-24 z-10">
+                        <h1 className="text-3xl lg:text-5xl font-bold text-left tracking-wide">Keep it special</h1>
+                        <p className="text-xl lg:text-3xl my-4 text-left">Capture your personal memory in unique way, anywhere.</p>
                     </div>
                 </div>
 
-                <div className="lg:w-1/2 w-full flex items-center justify-center text-center md:px-16 px-0 z-0" style={{ backgroundColor: '#161616' }}>
-                    <div className="absolute lg:hidden z-10 inset-0 bg-gray-500 bg-no-repeat bg-cover items-center" style={{ backgroundImage: 'url(public/BG.jpg)' }}>
-                        <div className="absolute bg-black opacity-60 inset-0 z-0" />
-                    </div>
-
-                    <div className="w-full py-6 z-20">
-                        <h1 className="my-6 text-3xl font-bold">
+                {/* Right Side - Form */}
+                <div className="lg:w-1/2 w-full flex items-center justify-center text-center px-4 md:px-16 py-8 z-0" 
+                    style={{ backgroundColor: '#161616' }}>
+                    <div className="w-full max-w-md">
+                        <h1 className="my-4 lg:my-6 text-2xl lg:text-3xl font-bold">
                             SignUp Here - Step {step} of 3
                         </h1>
 
@@ -97,7 +97,7 @@ const SignUp = () => {
                             ></div>
                         </div>
 
-                        <form onSubmit={handleSubmit} className="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
+                        <form onSubmit={handleSubmit} className="w-full px-0 mx-auto">
                             {/* Step 1: Basic Information */}
                             {step === 1 && (
                                 <div className="space-y-4">
@@ -109,7 +109,7 @@ const SignUp = () => {
                                             value={formData.name}
                                             onChange={handleChange}
                                             placeholder="Full Name *"
-                                            className="block w-full p-4 text-lg rounded-sm bg-black"
+                                            className="block w-full p-4 text-base lg:text-lg rounded-sm bg-black"
                                             required
                                         />
                                     </div>
@@ -122,14 +122,14 @@ const SignUp = () => {
                                             value={formData.email}
                                             onChange={handleChange}
                                             placeholder="Email *"
-                                            className="block w-full p-4 text-lg rounded-sm bg-black"
+                                            className="block w-full p-4 text-base lg:text-lg rounded-sm bg-black"
                                             required
                                         />
                                     </div>
 
                                     <div className="pb-2 pt-4">
                                         <input
-                                            className="block w-full p-4 text-lg rounded-sm bg-black"
+                                            className="block w-full p-4 text-base lg:text-lg rounded-sm bg-black"
                                             type="password"
                                             name="password"
                                             id="password"
@@ -142,7 +142,7 @@ const SignUp = () => {
 
                                     <div className="pb-2 pt-4">
                                         <input
-                                            className="block w-full p-4 text-lg rounded-sm bg-black"
+                                            className="block w-full p-4 text-base lg:text-lg rounded-sm bg-black"
                                             type="password"
                                             name="confirmPassword"
                                             id="confirmPassword"
@@ -166,7 +166,7 @@ const SignUp = () => {
                                             value={formData.phone}
                                             onChange={handleChange}
                                             placeholder="Phone Number *"
-                                            className="block w-full p-4 text-lg rounded-sm bg-black"
+                                            className="block w-full p-4 text-base lg:text-lg rounded-sm bg-black"
                                             required
                                         />
                                     </div>
@@ -179,7 +179,7 @@ const SignUp = () => {
                                             value={formData.address}
                                             onChange={handleChange}
                                             placeholder="Address *"
-                                            className="block w-full p-4 text-lg rounded-sm bg-black"
+                                            className="block w-full p-4 text-base lg:text-lg rounded-sm bg-black"
                                             required
                                         />
                                     </div>
@@ -192,7 +192,7 @@ const SignUp = () => {
                                             value={formData.city}
                                             onChange={handleChange}
                                             placeholder="City"
-                                            className="block w-full p-4 text-lg rounded-sm bg-black"
+                                            className="block w-full p-4 text-base lg:text-lg rounded-sm bg-black"
                                         />
                                     </div>
 
@@ -204,7 +204,7 @@ const SignUp = () => {
                                             value={formData.country}
                                             onChange={handleChange}
                                             placeholder="Country"
-                                            className="block w-full p-4 text-lg rounded-sm bg-black"
+                                            className="block w-full p-4 text-base lg:text-lg rounded-sm bg-black"
                                         />
                                     </div>
                                 </div>
@@ -221,14 +221,13 @@ const SignUp = () => {
                                             id="avatarImage"
                                             onChange={handleChange}
                                             accept="image/*"
-                                            className="block w-full p-2 text-lg rounded-sm bg-black text-white"
+                                            className="block w-full p-2 text-base lg:text-lg rounded-sm bg-black text-white"
                                         />
                                     </div>
 
-
                                     <div className="pb-2 pt-4 text-left">
                                         <p className="text-gray-300 mb-2">Terms and Conditions</p>
-                                        <div className="bg-black p-4 rounded-sm max-h-32 overflow-y-auto text-sm">
+                                        <div className="bg-black p-4 rounded-sm max-h-32 overflow-y-auto text-xs lg:text-sm">
                                             <p>By creating an account, you agree to our Terms of Service and Privacy Policy.
                                                 You consent to receiving occasional updates and account-related emails.</p>
                                             <p className="mt-2">We will never share your personal information with third parties without your explicit consent.</p>
@@ -247,12 +246,12 @@ const SignUp = () => {
                                 </div>
                             )}
 
-                            <div className="flex justify-between px-4 pb-2 pt-8">
+                            <div className={`flex ${step > 1 ? 'justify-between' : 'justify-end'} px-0 pb-2 pt-8`}>
                                 {step > 1 && (
                                     <button
                                         type="button"
                                         onClick={prevStep}
-                                        className="uppercase block w-1/3 p-4 text-lg rounded-full bg-gray-700 hover:bg-gray-600 focus:outline-none"
+                                        className="uppercase block w-1/3 p-3 lg:p-4 text-base lg:text-lg rounded-full bg-gray-700 hover:bg-gray-600 focus:outline-none"
                                     >
                                         Back
                                     </button>
@@ -262,14 +261,14 @@ const SignUp = () => {
                                     <button
                                         type="button"
                                         onClick={nextStep}
-                                        className={`uppercase block ${step > 1 ? 'w-2/3 ml-4' : 'w-full'} p-4 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none`}
+                                        className={`uppercase block ${step > 1 ? 'w-2/3 ml-4' : 'w-full'} p-3 lg:p-4 text-base lg:text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none`}
                                     >
                                         Next
                                     </button>
                                 ) : (
                                     <button
                                         type="submit"
-                                        className="uppercase block w-full p-4 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none"
+                                        className="uppercase block w-full p-3 lg:p-4 text-base lg:text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none"
                                     >
                                         Create Account
                                     </button>
@@ -277,7 +276,7 @@ const SignUp = () => {
                             </div>
 
                             <div className="text-center mt-4">
-                                <p className="text-gray-400">
+                                <p className="text-gray-400 text-sm lg:text-base">
                                     Already have an account?{' '}
                                     <a href="/login" className="text-indigo-400 hover:underline">
                                         Login here
