@@ -11,6 +11,8 @@ import Cart from './Pages/Cart'
 import OrderPage from './Pages/OrderPage';
 import View from './Pages/View'
 import Profile from './Pages/Profile'
+import Resume from './Components/Resume'
+import Footer from './Components/Footer'
 
 function App() {
 
@@ -29,7 +31,9 @@ function App() {
           <Route path='/profile' element={user?<Profile/>:<Navigate to={'/'}/>} />
           <Route path='/product/:id' element={user?<View/>:<Navigate to={'/'}/>} />
           <Route path='/orders' element={user?<OrderPage/>:<Navigate to={'/'}/>} />
+          <Route path='/resume' element={<Resume/>}/>
         </Routes>
+        <Footer/>
       </BrowserRouter>
       <Toaster/>
 
